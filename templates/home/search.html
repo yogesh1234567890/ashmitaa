@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Search Results {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}
+
+<div class="container my-4"  style="margin-left: 10%;">
+    <h2>Search results:</h2>
+    {% for post in allpost %}
+    <div class="col-md-9" wfd-id="39">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" wfd-id="40">
+          <div class="col p-3 d-flex flex-column position-static" wfd-id="42">
+            <strong class="d-inline-block mb-2 text-primary">Article by {{post.author}}</strong>
+            <h3 class="mb-0">{{post.blog_title}}</h3>
+            <div class="mb-1 text-muted" wfd-id="43">{{post.created_at}}</div>
+            <p class="card-text mb-auto">{{ post.content|truncatechars:150 }}</p>
+            <div class="my-3">
+            <a href="/blog/blogpost/{{post.id}}/" class="btn btn-primary">Continue reading</a>
+            </div>
+          </div>
+          <div class="col-auto d-none d-lg-block" wfd-id="41">
+            
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock body %}
+
+
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block homeactive %} active {% endblock homeactive %}
+{% block body %}
+
+<div class="container mt-4" style="text-align: center;">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome To Ashmita Publications Environment</h1>
+        <p class="lead">You can find any type of blog about the books here</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/blog/" role="button">Check blogs</a>
+        </p>
+      </div>
+</div>
+
+<div class="container"  style="margin-left: 10%;">
+    <h2>Our popular blogposts:</h2>
+    {% for post in allpost %}
+    <div class="col-md-9" wfd-id="39">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" wfd-id="40">
+          <div class="col p-3 d-flex flex-column position-static" wfd-id="42">
+            <strong class="d-inline-block mb-2 text-primary">Article by {{post.author}}</strong>
+            <h3 class="mb-0">{{post.blog_title}}</h3>
+            <div class="mb-1 text-muted" wfd-id="43">{{post.created_at}}</div>
+            <p class="card-text mb-auto">{{ post.content|truncatechars:150 }}</p>
+            <div class="my-3">
+            <a href="/blog/blogpost" class="btn btn-primary">Continue reading</a>
+            </div>
+          </div>
+          <div class="col-auto d-none d-lg-block" wfd-id="41">
+            
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock body %}
+
+
+
