@@ -8,7 +8,7 @@
         <h1 class="display-4">Welcome To Ashmita Publications Environment</h1>
         <p class="lead">You can find any type of blog about the books here</p>
         <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p>Different authors have posted their blogs here.</p>
         <p class="lead">
           <a class="btn btn-primary btn-lg" href="/blog/" role="button">Check blogs</a>
         </p>
@@ -26,7 +26,7 @@
             <div class="mb-1 text-muted" wfd-id="43">{{post.created_at}}</div>
             <p class="card-text mb-auto">{{ post.content|truncatechars:150 }}</p>
             <div class="my-3">
-            <a href="/blog/blogpost" class="btn btn-primary">Continue reading</a>
+            <a href="/blog/blogpost/{{post.id}}/" class="btn btn-primary">Continue reading</a>
             </div>
           </div>
           <div class="col-auto d-none d-lg-block" wfd-id="41">

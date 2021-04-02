@@ -29,7 +29,10 @@ def about(request):
 
 def search(request):
     query = request.GET['query']
-    allpost = Post.objects.filter(blog_title__icontains=query)
-    context = {'allpost': allpost}
+    alltitle = Post.objects.filter(blog_title__icontains=query)
+    allcontent = Post.objects.filter(content__icontains=query)
+    allpost = alltitle.union(allcontent)
+
+    context = {'allpost': allpost, 'query': query}
     return render(request, 'home/search.html', context) 
 

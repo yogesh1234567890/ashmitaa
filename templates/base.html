@@ -32,15 +32,93 @@
                 <a class="nav-link {% block contactactive %} {% endblock contactactive %}" href="/contact">Contact</a>
               </li>
             </ul>
-            <form method="GET" action="/search" class="d-flex">
+            <form method="GET" action="/search" class="d-flex mx-3">
               <input name="query" id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <a href="/admin" class="btn btn-info">Admin Panel</a>
+            <!-- Button trigger login modal -->
+            <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button>
+             <!-- Button trigger signup modal -->
+            <button type="button" class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+              Signup
+            </button>
+             
           </div>
         </div>
       </nav>
 
+<!-- signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModal">Signup Page</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="mb-3">
+          <label for="usernamme" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="write username">
+        </div>
+        <div class="mb-3"> 
+          <label for="fname" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+        </div> 
+        <div class="mb-3"> 
+          <label for="Lastname" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="Lastname" name="Lastname" placeholder="last Name">
+        </div> 
+        <div class="mb-3"> 
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="email">
+        </div> 
+        <div class="mb-3"> 
+          <label for="pass1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="pass1" name="pass1" placeholder="password">
+        </div> 
+        <div class="mb-3"> 
+          <label for="pass2" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Re-type password">
+        </div> 
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logiModal">Login Page</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="loginusername" name="username" placeholder="write username">
+        </div>
+        
+        <div class="mb-3"> 
+          <label for="pass" class="form-label">Enter Password</label>
+          <input type="password" class="form-control" id="pass" name="pass" placeholder="password">
+        </div> 
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+        <button type="submit" class="btn btn-success">Login</button>
+      </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
 
       {% block body %}
       
