@@ -27,10 +27,10 @@ class BlogComment(models.Model):
         return self.comment[0:10] + "..." + self.user.username
 
 
-class LoggedInUser(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='logged_in_user', on_delete=models.CASCADE)
-    session_key = models.CharField(max_length=32, blank=True, null= True)
+# class LoggedInUser(models.Model):
+#     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='logged_in_user', on_delete=models.CASCADE)
+#     session_key = models.CharField(max_length=32, blank=True, null= True)
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username
 
