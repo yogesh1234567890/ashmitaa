@@ -100,9 +100,11 @@ def handlelogin(request):
 
         user = authenticate(username=loginusername, password=loginpassword)
         if user is not None:
-            id= LoggedInUser.objects.filter(user_id=user.id)
-            if id is None: 
+            id = LoggedInUser.objects.filter(user_id=user)
+            if not id:
                 login(request, user)
+                # current_session = request.user.logged_in_user.session_key
+                # LoggedInUser.objects.create(user=user,session_key = current_session)
                 messages.success(request, 'Successfully Logged In')
             else:
                 messages.error(request, 'User is already logged in')
@@ -112,6 +114,9 @@ def handlelogin(request):
 
     return redirect('home')
 def handlelogout(request):
+    # current_session = request.user.logged_in_user.session_key
+    # user = request.user
+    # LoggedInUser.objects.get(user=user ,session_key = current_session).delete()
     logout(request)
     messages.success(request, 'Successfully Logged Out')
     return redirect('home')
